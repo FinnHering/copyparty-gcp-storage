@@ -15,6 +15,7 @@ RUN apk add --update --no-cache bash ca-certificates fuse
 COPY --from=builder /tmp/bin/gcsfuse /usr/local/bin/gcsfuse
 COPY --from=builder /tmp/sbin/mount.gcsfuse /usr/sbin/mount.gcsfuse
 COPY ./entry-point.sh /entry-point.sh
+RUN chmod +x /entry-point.sh
 
 ENTRYPOINT ["/entry-point.sh"]
 
